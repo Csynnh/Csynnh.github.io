@@ -290,6 +290,10 @@ footer.footer {
    font-family: "Roboto", sans-serif;
    text-transform: uppercase;
    font-size: 13px;
+   transition: all linear 0.2s;
+}
+.footer-nav-item:hover {
+   color: white;
 }
 .footer-bottom {
    padding-top: 13px;
@@ -299,4 +303,24 @@ footer.footer {
 }
 .footer-bottom a {
    line-height: 28.8px;
+}
+
+@media screen and (max-width: 767.98px) {
+   .header-meta {
+      display: none;
+   }
+   .footer-content {
+      flex-direction: column;
+      gap: 20px;
+      padding: 0 25px;
+   }
+   .footer-wrap {
+      width: 86.666%;
+   }
+   .footer-info {
+      margin-bottom: 20px;
+   }
+   .footer-bottom {
+      text-align: left;
+   }
 }
