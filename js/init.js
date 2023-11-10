@@ -24,7 +24,7 @@
    contactLink.addEventListener("click", (e) => {
       e.preventDefault();
       // location.replace("/#contact-form");
-ư      const contactForm = document.querySelector(".contact-form");
+      const contactForm = document.querySelector(".contact-form");
       contactForm.scrollIntoView({ behavior: "smooth", block: "start" });
       setInterval(() => {}, 400);
    });
