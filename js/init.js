@@ -26,15 +26,20 @@
    const email = document.getElementById("email");
    const name = document.getElementById("name");
    const subject = document.getElementById("subject");
+   const terms = document.getElementById("terms");
    const message = document.getElementById("message");
    const button = document.getElementById("button");
    const formContact = document.querySelector("form");
    let isSubmitting = false;
    formContact.addEventListener("submit", handleSubmitForm);
    async function handleSubmitForm(e) {
+      console.log(terms.checked);
       e.preventDefault();
-      if (name.value.length === 0 && message.value.length === 0) {
-         console.log("no");
+      if (
+         name.value.length === 0 ||
+         message.value.length === 0 ||
+         terms.checked === false
+      ) {
          return;
       }
       isSubmitting = true;
@@ -50,9 +55,10 @@
          const res = await emailjs.send(serviceID, templateID, params);
          isSubmitting = false;
 
-         document.getElementById("name").value = "";
-         document.getElementById("email").value = "";
-         document.getElementById("message").value = "";
+         name.value = "";
+         message.value = "";
+         email.value = "";
+         terms.checked = false;
          button.classList.remove("isSubmitting");
          console.log(res);
       } catch (err) {

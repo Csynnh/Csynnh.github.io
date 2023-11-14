@@ -310,6 +310,7 @@ label {
    width: 100%;
    gap: 10px;
    margin-bottom: 30px;
+   user-select: none;
 }
 .form-checkbox input {
    display: none;
