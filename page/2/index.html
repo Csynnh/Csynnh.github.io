@@ -24,6 +24,14 @@
 
 <link rel="stylesheet" href="/css/pages.css">
 
+   <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+   <script type="text/javascript">
+      (function () {
+         emailjs.init("MxVfwZgSgfZUFCLOR");
+      })();
+   </script>
    <title>Casadora</title>
 <meta name="generator" content="Hexo 7.0.0"></head>
 
@@ -184,24 +192,28 @@
                   d="M70.865,101.78c0,4.774,3.886,8.657,8.66,8.657c4.774,0,8.657-3.883,8.657-8.657c0-4.773-3.883-8.656-8.657-8.656    C74.751,93.124,70.865,97.006,70.865,101.78z"></path>
             </svg>
          </div>
-         <form action="" class="form">
+         <form class="form">
             <div class="form-block">
                <label for="name">
                   <span>My name is</span>
                </label>
-               <input type="text" id="name" placeholder="NAME" />
+               <input type="text" id="name" name="sname" placeholder="NAME" />
             </div>
             <div class="form-block">
                <label for="email">
                   <span>My Email is</span>
                </label>
-               <input type="email" id="email" placeholder="EMAIL" />
+               <input
+                  type="email"
+                  name="semail"
+                  id="email"
+                  placeholder="EMAIL" />
             </div>
             <div class="form-block">
                <label for="subject">
                   <span>My Subject is</span>
                </label>
-               <select name="subject" id="subject">
+               <select name="ssubject" id="subject">
                   <option value="I'd like to get a quotation/catalogue">
                      I'd like to get a quotation/catalogue
                   </option>
@@ -218,18 +230,24 @@
                <label for="message">
                   <span>I'd like to chat about</span>
                </label>
-               <textarea id="message" placeholder="MESSAGE"></textarea>
+               <textarea
+                  id="message"
+                  name="smessage"
+                  placeholder="MESSAGE"></textarea>
             </div>
             <div class="form-checkbox">
                <label for="checkbox">
-                  <input type="checkbox" id="checkbox" />
+                  <input type="checkbox" name="sterms" id="checkbox" />
                   <div class="custom-checkbox">
                      <i class="fa-sharp fa-solid fa-check"></i>
                   </div>
                   <span>I declare that I have examined the Privacy Policy</span>
                </label>
             </div>
-            <button>Send message</button>
+            <button type="submit" value="Send" id="button" class="">
+               <span>Send message</span>
+               <div class="circle"></div>
+            </button>
          </form>
       </div>
    </div>
@@ -393,6 +411,7 @@
 
       <!-- scripts -->
       <div class="menu-overlay"></div>
+
       
 <script src="/js/init.js"></script>
 

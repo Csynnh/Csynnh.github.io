@@ -1,4 +1,6 @@
 (function () {
+   // emailjs.init("MxVfwZgSgfZUFCLOR");
+
    const menuIcon = document.querySelector(".header-menu");
    const iconClosesidebar = document.querySelector(".sidebar-close");
    const sidebar = document.querySelector(".sidebar");
@@ -21,11 +23,40 @@
    console.log({ sidebarLinks });
    const contactLink = sidebarLinks[sidebarLinks.length - 1];
    console.log({ contactLink });
-   contactLink.addEventListener("click", (e) => {
+   const email = document.getElementById("email");
+   const name = document.getElementById("name");
+   const subject = document.getElementById("subject");
+   const message = document.getElementById("message");
+   const button = document.getElementById("button");
+   const formContact = document.querySelector("form");
+   let isSubmitting = false;
+   formContact.addEventListener("submit", handleSubmitForm);
+   async function handleSubmitForm(e) {
       e.preventDefault();
-      // location.replace("/#contact-form");
-      const contactForm = document.querySelector(".contact-form");
-      contactForm.scrollIntoView({ behavior: "smooth", block: "start" });
-      setInterval(() => {}, 400);
-   });
+      if (name.value.length === 0 && message.value.length === 0) {
+         console.log("no");
+         return;
+      }
+      isSubmitting = true;
+      var params = {
+         user_name: name.value,
+         user_message: message.value,
+         user_email: email.value,
+      };
+      const serviceID = "service_tsuiy04";
+      const templateID = "template_j24wzjc";
+      button.classList.add("isSubmitting");
+      try {
+         const res = await emailjs.send(serviceID, templateID, params);
+         isSubmitting = false;
+
+         document.getElementById("name").value = "";
+         document.getElementById("email").value = "";
+         document.getElementById("message").value = "";
+         button.classList.remove("isSubmitting");
+         console.log(res);
+      } catch (err) {
+         console.log(err);
+      }
+   }
 })();

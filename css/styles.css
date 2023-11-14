@@ -343,6 +343,38 @@ label {
    border: 2px solid #333;
    color: #333;
    font-weight: 600;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.form button.isSubmitting span {
+   display: none;
+}
+.form button.isSubmitting .circle {
+   display: block;
+}
+.form button.isSubmitting {
+   padding: 10px 55px;
+}
+.circle {
+   width: 25px;
+   height: 25px;
+   border-radius: 100rem;
+   border: 3px solid #333;
+   border-left: 3px solid transparent;
+   animation-name: spin;
+   animation-duration: 1s;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   display: none;
+}
+@keyframes spin {
+   from {
+      transform: rotate(0deg);
+   }
+   to {
+      transform: rotate(360deg);
+   }
 }
 .form-checkbox input:checked ~ .custom-checkbox {
    background: #0d6efd;
